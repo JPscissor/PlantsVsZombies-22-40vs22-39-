@@ -30,3 +30,17 @@ cells.forEach(cell => {
         }
     });
 });
+function checkFullscreen() {
+    // Проверяем размеры окна
+    if (window.innerWidth < screen.width || window.innerHeight < screen.height) {
+        document.getElementById('overlay').style.display = 'flex';
+    } else {
+        document.getElementById('overlay').style.display = 'none';
+    }
+}
+
+// Проверка при загрузке страницы
+window.onload = checkFullscreen;
+
+// Проверка при изменении размера окна
+window.onresize = checkFullscreen;
