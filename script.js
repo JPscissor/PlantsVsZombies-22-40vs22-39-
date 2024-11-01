@@ -47,13 +47,31 @@ window.onresize = checkFullscreen;// Add this to your script.js file
 const sunCounterElement = document.querySelector('.sun-counter');
 let sunCounter = 0;
 
-// Update the sun counter whenever a sun is placed in a cell
+
+
+// Function to generate a random sun icon
+function generateSunIcon() {
+    const sunIcon = document.createElement('img');
+    sunIcon.src = 'assets/sun.gif';
+    sunIcon.classList.add('sun-icon');
+    sunIcon.style.position = 'absolute';
+    sunIcon.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+    sunIcon.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+    document.body.appendChild(sunIcon);
+    return sunIcon;
+}
+
+// Function to handle sun icon click
+function handleSunIconClick(sunIcon) {
+    sunCounter++;
+    sunCounterElement.querySelector('.sun-counter-text').textContent = sunCounter;
+    sunIcon.remove();
+}
+
+// Generate a new sun icon when a cell is clicked
 cells.forEach(cell => {
     cell.addEventListener('drop', () => {
-        if (draggedItem) {
-            cell.appendChild(draggedItem);
-            sunCounter++;
-            sunCounterElement.querySelector('.sun-counter-text').textContent = sunCounter;
-        }
+        const sunIcon = generateSunIcon();
+        sunIcon.addEventListener('click', () => handleSunIconClick(sunIcon));
     });
 });
