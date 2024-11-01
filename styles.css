@@ -21,20 +21,28 @@ body, html {
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(9, 1fr);
     gap: 0px; /* Расстояние между ячейками */
-    width: 50vw; /* Ширина сетки */
-    height: 65vh; /* Высота сетки */
+    width: 57vw; /* Ширина сетки */
+    height: 68vh; /* Высота сетки */
     position: absolute;
-    top: calc(50% + 10px); /* Подгонка по вертикали */
-    left: calc(50% - 100px); /* Подгонка по горизонтали */
+    top: calc(50% + 30px); /* Подгонка по вертикали */
+    left: calc(50% - 125px); /* Подгонка по горизонтали */
     transform: translate(-50%, -50%);
+}
+
+.zombie {
+    position: absolute;
+    width: 50px; /* Размер зомби */
+    height: auto;
+    transition: transform 0.1s; /* Плавное движение */
+    transform: translateX(100vw); /* Начальное положение за пределами экрана */
 }
 
 .cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5); */
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     position: relative;
 }
 
