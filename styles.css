@@ -51,27 +51,37 @@ body, html {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-    }
+    }}
     
-    .sun-counter {
-        margin-left: 20px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .sun-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-    }
-    
-    .sun-counter-text {
-        font-weight: bold;
-    }
+
+.top-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #f0e68c;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    position: relative;
+    z-index: 1000; /* Add this to make sure the panel is on top of other elements */
+}
+
+.sun-counter {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sun-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.sun-counter-text {
+    font-weight: bold;
 }
 
 .cell img {
