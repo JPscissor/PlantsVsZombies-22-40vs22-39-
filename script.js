@@ -43,4 +43,17 @@ function checkFullscreen() {
 window.onload = checkFullscreen;
 
 // Проверка при изменении размера окна
-window.onresize = checkFullscreen;
+window.onresize = checkFullscreen;// Add this to your script.js file
+const sunCounterElement = document.querySelector('.sun-counter');
+let sunCounter = 0;
+
+// Update the sun counter whenever a sun is placed in a cell
+cells.forEach(cell => {
+    cell.addEventListener('drop', () => {
+        if (draggedItem) {
+            cell.appendChild(draggedItem);
+            sunCounter++;
+            sunCounterElement.querySelector('.sun-counter-text').textContent = sunCounter;
+        }
+    });
+});
